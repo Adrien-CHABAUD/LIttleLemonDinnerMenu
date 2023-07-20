@@ -29,7 +29,7 @@ I found the assignment interesting but it was missing some more design to be mor
 This is what the app now look like:
 
 <p align="center">
-  <img src="/ReadMe/App_Main_Screenshot_v2.png" width=300 hspace=20><img src="/ReadMe/App_Detail_Screenshot_v2.png" width=300><img src="/ReadMe/App_Settings_Screenshot_v2.png" width=300 hspace=20>
+  <img src="/ReadMe/App_Main_Screenshot_v2.png" width=300 hspace=20><img src="/ReadMe/App_Detail_Screenshot_v2.png" width=300>
 </p>
 
 ## Technologies
