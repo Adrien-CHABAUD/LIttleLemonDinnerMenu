@@ -8,7 +8,5 @@
 import Foundation
 
 enum MenuCategory: String {
-    case Food
-    case Drink
-    case Dessert
+    case Food, Drink, Dessert
 }

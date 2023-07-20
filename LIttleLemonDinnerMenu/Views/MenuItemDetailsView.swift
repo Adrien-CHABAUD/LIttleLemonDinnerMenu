@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuItemDetailsView: View {
-    let menuItem: MenuItem
+    @Binding var menuItem: MenuItem
     
     var body: some View {
         
@@ -43,8 +43,15 @@ struct MenuItemDetailsView: View {
 }
 
 struct MenuItemDetailsView_Previews: PreviewProvider {
+    struct MenuItemContainer: View {
+        @State private var menuItem = MenuItem(ordersCount: 20, title: "Coffee", menuCategory: .Drink, picture: "drink1", price: 10.99, ingredients: [.Broccoli], orderCount: 10)
+        
+        var body: some View {
+            MenuItemDetailsView(menuItem: $menuItem)
+        }
+    }
+    
     static var previews: some View {
-        let test = MenuItem(title: "coffee", picture: "drink1", price: 12.5, ingredients: [.Broccoli, .TomatoSauce], menyCategory: .Drink, orderCount: 30)
-        MenuItemDetailsView(menuItem: test)
+        MenuItemContainer()
     }
 }

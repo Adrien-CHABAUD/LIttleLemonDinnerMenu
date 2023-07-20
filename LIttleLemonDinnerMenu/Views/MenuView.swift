@@ -7,44 +7,32 @@
 
 import SwiftUI
 
-struct MenuItemsView: View {
+struct MenuView: View {
     // Get direct access to the data
-    let food = MenuItem.examples
     @State var showSheetView = false
     @State var selectionCat = "All Categories"
     @State var selectioSort =  "Most Popular"
-//case MostPopular = "Most Popular"
-//case Price = "Price"
-//case Alphabet = "A-Z"
+    //case MostPopular = "Most Popular"
+    //case Price = "Price"
+    //case Alphabet = "A-Z"
     
     var body: some View {
-        // Divide each category into different variables
-        let dishes = food.filter(){ $0.menyCategory == .Food}
-        let drinks = food.filter(){ $0.menyCategory == .Drink}
-        let desserts = food.filter(){ $0.menyCategory == .Dessert}
-        
         
         NavigationView {
             ScrollView {
                 
                 switch selectionCat {
                 case "Food":
-                    GridItemDisplay(itemDisplay: dishes,
-                                    category: "Food")
+                    GridItemDisplay(category: "Food")
                 case "Drink":
-                    GridItemDisplay(itemDisplay: drinks,
-                                    category: "Drink")
+                    GridItemDisplay(category: "Drink")
                 case "Dessert":
-                    GridItemDisplay(itemDisplay: desserts,
-                                    category: "Dessert")
+                    GridItemDisplay(category: "Dessert")
                 default:
                     
-                    GridItemDisplay(itemDisplay: dishes,
-                                    category: "Food")
-                    GridItemDisplay(itemDisplay: drinks,
-                                    category: "Drink")
-                    GridItemDisplay(itemDisplay: desserts,
-                                    category: "Dessert")
+                    GridItemDisplay(category: "Food")
+                    GridItemDisplay(category: "Drink")
+                    GridItemDisplay(category: "Dessert")
                 }
             }.navigationTitle("Menu")
                 .toolbar {
@@ -65,13 +53,12 @@ struct MenuItemsView: View {
 
 struct MenuItemsView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemsView()
+        MenuView()
     }
 }
 
 struct GridItemDisplay: View {
-    // Get the items to display
-    let itemDisplay: [MenuItem]
+    @ObservedObject private var viewModel = MenuViewModel()
     // Name of the category
     let category: String
     // Set the size of the grid
@@ -88,20 +75,20 @@ struct GridItemDisplay: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
             
+            // Show the item asked only
+            let itemToShow = category == "Food" ? $viewModel.foodMenuItems : category == "Drink" ? $viewModel.drinkMenuItems : $viewModel.dessertMenuItems
+            
             LazyVGrid(columns: gridShape) {
-                ForEach(itemDisplay) { item in
-                    VStack {
-                        NavigationLink {
-                            MenuItemDetailsView(menuItem: item)
-                        } label: {
-                            Image(item.picture)
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(20)
-                            
-                        }
-                        Text(item.title)
-                    }
+                ForEach(itemToShow) { menuItem in
+                    NavigationLink {
+                        MenuItemDetailsView(menuItem: menuItem)
+                    } label: {
+                        MenuItemView(menuItem: menuItem)
+                            .frame(
+                                maxWidth: .infinity,
+                                minHeight: 120
+                            )
+                    }.buttonStyle(.plain)
                 }
             }
         }

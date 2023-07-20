@@ -20,7 +20,7 @@ final class MenuItemTests: XCTestCase {
     func test_MenuItemIngredients_init_menuItemIngredientsEqualInitializedIngredients(){
         let menuItem = MenuItem(title: "coffee", picture: "drink1", price: 10.99, ingredients: [.Broccoli], menyCategory: .Drink, orderCount: 30)
         // Unit testing
-        XCTAssert(menuItem.ingredients[0] == Ingredients.Broccoli)
+        XCTAssert(menuItem.ingredients[0] == Ingredient.Broccoli)
     }
     
     func test_MenuItemPrice_init_menuItemPriceEqualInitializedPrice(){
