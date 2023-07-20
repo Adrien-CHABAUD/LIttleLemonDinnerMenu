@@ -7,24 +7,67 @@
 
 import SwiftUI
 
+// Define how to display each item in the grid
 struct MenuItemView: View {
     @Binding var menuItem: MenuItem
     var body: some View {
-        VStack {
-            Image(menuItem.picture)
-                .resizable()
-                .frame(
-                    maxWidth: 100,
-                    maxHeight: 100
-                )
-            Text(menuItem.title)
-        }
+        ZStack {
+            // Background Color
+            Color("Green")
+                .opacity(0.5)
+                .cornerRadius(16)
+            
+            
+            VStack {
+                // Price Display
+                Text("\(menuItem.displayPrice)")
+                    .frame(maxWidth: 49, maxHeight: 27)
+                    .foregroundColor(Color("Yellow"))
+                    .background(
+                        // Create the background shape
+                        RoundedCornerShape(corners: [.topRight, .bottomLeft], radius: 16)
+                            .fill(Color("Green"))
+                    )
+                    .frame(maxWidth: .infinity, alignment: .topTrailing)
+                    
+                
+                
+                // Picture with the title
+                Image(menuItem.picture)
+                    .resizable()
+                    .cornerRadius(16.0)
+                    .frame(
+                        maxWidth: 102,
+                        maxHeight: 112
+                    )
+                    .shadow(color: Color("Green"), radius:1, y: 4)
+                
+                Text(menuItem.title)
+                    .foregroundColor(Color("Green"))
+                HStack {
+                    // Bottom Buttons
+                    Image(systemName: "heart")
+                        .foregroundColor(Color("Green"))
+                    Spacer()
+                        .frame(width: 65)
+                    
+                    Text("Add")
+                        .underline()
+                        .foregroundColor(Color("Yellow"))
+                        .fontWeight(.semibold)
+                }
+                .padding(.bottom, 5)
+            }
+        }.frame(
+            maxWidth: 160,
+            maxHeight: 202
+        )
     }
 }
 
 struct MenuItemView_Previews: PreviewProvider {
     struct MenuItemViewContainer: View {
-        @State private var menuItem = MenuItem(ordersCount: 20, title: "Coffee", menuCategory: .Drink, picture: "drink1", price: 10.99, ingredients: [.Broccoli], orderCount: 10)
+        @State private var menuItem = MenuItem(ordersCount: 20, title: "Coffee", menuCategory: .Drink, picture: "drink1", price: 10, ingredients: [.Broccoli], orderCount: 10)
         
         var body: some View {
             MenuItemView(menuItem: $menuItem)

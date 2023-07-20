@@ -10,6 +10,7 @@
 		E952200B2A68A7A100DDFBDA /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952200A2A68A7A100DDFBDA /* SortOption.swift */; };
 		E952200F2A68A83900DDFBDA /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952200E2A68A83900DDFBDA /* MenuViewModel.swift */; };
 		E95220112A68AA2500DDFBDA /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95220102A68AA2500DDFBDA /* MenuItemView.swift */; };
+		E95220132A69D84800DDFBDA /* RoundedCornerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95220122A69D84800DDFBDA /* RoundedCornerShape.swift */; };
 		E980CA3F2A5208DF00490B9D /* LIttleLemonDinnerMenuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA3E2A5208DF00490B9D /* LIttleLemonDinnerMenuApp.swift */; };
 		E980CA412A5208DF00490B9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA402A5208DF00490B9D /* ContentView.swift */; };
 		E980CA432A5208E000490B9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E980CA422A5208E000490B9D /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		E952200A2A68A7A100DDFBDA /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
 		E952200E2A68A83900DDFBDA /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		E95220102A68AA2500DDFBDA /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		E95220122A69D84800DDFBDA /* RoundedCornerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerShape.swift; sourceTree = "<group>"; };
 		E980CA3B2A5208DF00490B9D /* LIttleLemonDinnerMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LIttleLemonDinnerMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E980CA3E2A5208DF00490B9D /* LIttleLemonDinnerMenuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIttleLemonDinnerMenuApp.swift; sourceTree = "<group>"; };
 		E980CA402A5208DF00490B9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				E952200C2A68A7F900DDFBDA /* Views */,
 				E980CA422A5208E000490B9D /* Assets.xcassets */,
 				E980CA442A5208E000490B9D /* Preview Content */,
+				E95220122A69D84800DDFBDA /* RoundedCornerShape.swift */,
 			);
 			path = LIttleLemonDinnerMenu;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			files = (
 				E980CA7C2A5250E500490B9D /* Ingredient.swift in Sources */,
 				E980CA412A5208DF00490B9D /* ContentView.swift in Sources */,
+				E95220132A69D84800DDFBDA /* RoundedCornerShape.swift in Sources */,
 				E95220112A68AA2500DDFBDA /* MenuItemView.swift in Sources */,
 				E980CA692A5208F500490B9D /* MenuView.swift in Sources */,
 				E952200F2A68A83900DDFBDA /* MenuViewModel.swift in Sources */,

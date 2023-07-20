@@ -65,7 +65,6 @@ struct GridItemDisplay: View {
     private let gridShape = [
         GridItem(.flexible()),
         GridItem(.flexible()),
-        GridItem(.flexible()),
     ]
     
     var body: some View {
@@ -84,10 +83,7 @@ struct GridItemDisplay: View {
                         MenuItemDetailsView(menuItem: menuItem)
                     } label: {
                         MenuItemView(menuItem: menuItem)
-                            .frame(
-                                maxWidth: .infinity,
-                                minHeight: 120
-                            )
+                            
                     }.buttonStyle(.plain)
                 }
             }

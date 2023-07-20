@@ -27,8 +27,6 @@ struct MenuItem: Identifiable, MenuItemProtocol {
     var ingredients: [Ingredient]
     var orderCount: Int
     var displayPrice: String {
-        String(
-            round(price / 0.01) * 0.01
-            )
+        "£" + String(Int(price))
     }
 }

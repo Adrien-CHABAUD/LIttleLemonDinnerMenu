@@ -20,7 +20,7 @@ final class MenuViewModel: ObservableObject {
     private func makeFoodMenuItems() -> [MenuItem] {
         (1...12)
             .map {
-                MenuItem(ordersCount: $0 * 200, title: "Food \($0)", menuCategory: .Food, picture: "food\($0)", price: Double($0) + 5.99, ingredients: Ingredient.allCases, orderCount: $0 + 20
+                MenuItem(ordersCount: $0 * 200, title: "Food \($0)", menuCategory: .Food, picture: "food\($0)", price: Double($0) + 5, ingredients: Ingredient.allCases, orderCount: $0 + 20
                 )
             }
     }
@@ -28,7 +28,7 @@ final class MenuViewModel: ObservableObject {
     private func makeDrinkMenuItems() -> [MenuItem] {
         (1...5)
             .map {
-                MenuItem(ordersCount: $0 * 200, title: "Drink \($0)", menuCategory: .Food, picture: "drink\($0)", price: Double($0) + 0.99, ingredients: Ingredient.allCases, orderCount: $0 + 20
+                MenuItem(ordersCount: $0 * 200, title: "Drink \($0)", menuCategory: .Food, picture: "drink\($0)", price: Double($0) + 0, ingredients: Ingredient.allCases, orderCount: $0 + 20
                 )
             }
     }
@@ -36,7 +36,7 @@ final class MenuViewModel: ObservableObject {
     private func makeDessertMenuItems() -> [MenuItem] {
         (1...12)
             .map {
-                MenuItem(ordersCount: $0 * 200, title: "Dessert \($0)", menuCategory: .Food, picture: "dessert\($0)", price: Double($0) + 2.99, ingredients: Ingredient.allCases, orderCount: $0 + 20
+                MenuItem(ordersCount: $0 * 200, title: "Dessert \($0)", menuCategory: .Food, picture: "dessert\($0)", price: Double($0) + 2, ingredients: Ingredient.allCases, orderCount: $0 + 20
                 )
             }
     }
