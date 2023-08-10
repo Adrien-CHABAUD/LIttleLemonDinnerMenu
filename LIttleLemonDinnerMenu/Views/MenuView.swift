@@ -63,30 +63,53 @@ struct GridItemDisplay: View {
     let category: String
     // Set the size of the grid
     private let gridShape = [
-        GridItem(.flexible()),
+        GridItem(.flexible(), spacing: -30),
         GridItem(.flexible()),
     ]
     
     var body: some View {
-        VStack {
-            Text(category)
-                .font(.system(size: 25))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-            
-            // Show the item asked only
-            let itemToShow = category == "Food" ? $viewModel.foodMenuItems : category == "Drink" ? $viewModel.drinkMenuItems : $viewModel.dessertMenuItems
-            
-            LazyVGrid(columns: gridShape) {
-                ForEach(itemToShow) { menuItem in
-                    NavigationLink {
-                        MenuItemDetailsView(menuItem: menuItem)
-                    } label: {
-                        MenuItemView(menuItem: menuItem)
+        ZStack {
+            VStack {
+                Text(category)
+                    .font(.system(size: 25))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                
+                // Show the item asked only
+                let itemToShow = category == "Food" ? $viewModel.foodMenuItems : category == "Drink" ? $viewModel.drinkMenuItems : $viewModel.dessertMenuItems
+                
+                LazyVGrid(columns: gridShape) {
+                    ForEach(itemToShow) { menuItem in
+                        NavigationLink {
+                            MenuItemDetailsView(menuItem: menuItem)
+                        } label: {
+                            MenuItemView(menuItem: menuItem)
                             
-                    }.buttonStyle(.plain)
+                        }.buttonStyle(.plain)
+                    }
                 }
             }
+            
+            // Button allowing to see the cart
+            Button {
+                // TO-DO
+            } label: {
+                ZStack {
+                    // Back Rectangle
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color("Yellow"))
+                        .frame(maxWidth: 319, maxHeight: 58)
+                        .shadow(color: Color("Green"), radius: 1, x: 0, y: 4)
+
+                    // Front Text
+                    Text("View Cart")
+                        .fontWeight(.regular)
+                        .font(.system(size: 20))
+                        .foregroundColor(.white)
+                    
+                }
+            }
+
         }
     }
 }
