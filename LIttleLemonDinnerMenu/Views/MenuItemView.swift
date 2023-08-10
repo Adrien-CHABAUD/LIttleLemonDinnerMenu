@@ -46,17 +46,26 @@ struct MenuItemView: View {
                 
                 Text(menuItem.title)
                     .foregroundColor(Color("Green"))
+                
                 HStack {
                     // Bottom Buttons
-                    Image(systemName: "heart")
-                        .foregroundColor(Color("Green"))
+                    Button {
+                        // TO-DO
+                    } label: {
+                        Image(systemName: "heart")
+                            .foregroundColor(Color("Green"))
+                    }
+
                     Spacer()
                         .frame(width: 65)
-                    
-                    Text("Add")
-                        .underline()
-                        .foregroundColor(Color("Yellow"))
-                        .fontWeight(.semibold)
+                    Button {
+                        // TO-DO
+                    } label: {
+                        Text("Add")
+                            .underline()
+                            .foregroundColor(Color("Yellow"))
+                            .fontWeight(.semibold)
+                    }
                 }
                 .padding(.bottom, 5)
             }

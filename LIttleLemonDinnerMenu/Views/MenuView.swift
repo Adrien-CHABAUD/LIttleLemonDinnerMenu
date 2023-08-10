@@ -19,6 +19,7 @@ struct MenuView: View {
     var body: some View {
         
         NavigationView {
+            // Overlay the "View Cart" button and the content of the view
             ZStack(alignment: .bottom) {
                 ScrollView {
                     
@@ -45,8 +46,8 @@ struct MenuView: View {
                         
                         
                     }
-                // Button allowing to see the cart
                 
+                // Button allowing to see the cart
                 Button {
                     // TO-DO
                 } label: {
