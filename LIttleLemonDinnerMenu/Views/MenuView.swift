@@ -19,31 +19,53 @@ struct MenuView: View {
     var body: some View {
         
         NavigationView {
-            ScrollView {
-                
-                switch selectionCat {
-                case "Food":
-                    GridItemDisplay(category: "Food")
-                case "Drink":
-                    GridItemDisplay(category: "Drink")
-                case "Dessert":
-                    GridItemDisplay(category: "Dessert")
-                default:
+            ZStack(alignment: .bottom) {
+                ScrollView {
                     
-                    GridItemDisplay(category: "Food")
-                    GridItemDisplay(category: "Drink")
-                    GridItemDisplay(category: "Dessert")
-                }
-            }.navigationTitle("Menu")
-                .toolbar {
-                    Button {
-                        self.showSheetView.toggle()
-                    } label: {
-                        Image(systemName: "slider.horizontal.3")
+                    switch selectionCat {
+                    case "Food":
+                        GridItemDisplay(category: "Food")
+                    case "Drink":
+                        GridItemDisplay(category: "Drink")
+                    case "Dessert":
+                        GridItemDisplay(category: "Dessert")
+                    default:
+                        
+                        GridItemDisplay(category: "Food")
+                        GridItemDisplay(category: "Drink")
+                        GridItemDisplay(category: "Dessert")
                     }
-                    
-                    
+                }.navigationTitle("Menu")
+                    .toolbar {
+                        Button {
+                            self.showSheetView.toggle()
+                        } label: {
+                            Image(systemName: "slider.horizontal.3")
+                        }
+                        
+                        
+                    }
+                // Button allowing to see the cart
+                
+                Button {
+                    // TO-DO
+                } label: {
+                    ZStack {
+                        // Back Rectangle
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color("Yellow"))
+                            .frame(maxWidth: 319, maxHeight: 58)
+                            .shadow(color: Color("Green"), radius: 1, x: 0, y: 4)
+                        
+                        // Front Text
+                        Text("View Cart")
+                            .fontWeight(.regular)
+                            .font(.system(size: 20))
+                            .foregroundColor(.white)
+                        
+                    }
                 }
+            }
         }.sheet(isPresented: $showSheetView) {
             MenuItemsOptionView(showSheetView: self.$showSheetView, selectionCat: self.$selectionCat, selectioSort: self.$selectioSort)
             
@@ -68,48 +90,26 @@ struct GridItemDisplay: View {
     ]
     
     var body: some View {
-        ZStack {
-            VStack {
-                Text(category)
-                    .font(.system(size: 25))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
-                
-                // Show the item asked only
-                let itemToShow = category == "Food" ? $viewModel.foodMenuItems : category == "Drink" ? $viewModel.drinkMenuItems : $viewModel.dessertMenuItems
-                
-                LazyVGrid(columns: gridShape) {
-                    ForEach(itemToShow) { menuItem in
-                        NavigationLink {
-                            MenuItemDetailsView(menuItem: menuItem)
-                        } label: {
-                            MenuItemView(menuItem: menuItem)
-                            
-                        }.buttonStyle(.plain)
-                    }
-                }
-            }
+        VStack {
+            Text(category)
+                .font(.system(size: 25))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
             
-            // Button allowing to see the cart
-            Button {
-                // TO-DO
-            } label: {
-                ZStack {
-                    // Back Rectangle
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color("Yellow"))
-                        .frame(maxWidth: 319, maxHeight: 58)
-                        .shadow(color: Color("Green"), radius: 1, x: 0, y: 4)
-
-                    // Front Text
-                    Text("View Cart")
-                        .fontWeight(.regular)
-                        .font(.system(size: 20))
-                        .foregroundColor(.white)
-                    
+            // Show the item asked only
+            let itemToShow = category == "Food" ? $viewModel.foodMenuItems : category == "Drink" ? $viewModel.drinkMenuItems : $viewModel.dessertMenuItems
+            
+            LazyVGrid(columns: gridShape) {
+                ForEach(itemToShow) { menuItem in
+                    NavigationLink {
+                        MenuItemDetailsView(menuItem: menuItem)
+                    } label: {
+                        MenuItemView(menuItem: menuItem)
+                        
+                    }.buttonStyle(.plain)
                 }
             }
-
         }
+        
     }
 }
