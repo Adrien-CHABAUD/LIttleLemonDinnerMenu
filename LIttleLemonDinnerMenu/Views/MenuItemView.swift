@@ -12,11 +12,13 @@ struct MenuItemView: View {
     @Binding var menuItem: MenuItem
     var body: some View {
         ZStack {
-            // Background Color
-            Color("Green")
-                .opacity(0.5)
-                .cornerRadius(16)
-            
+            VStack {
+                // Background Color
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color("PaleGreen"))
+                .shadow(radius: 1, y:4)
+
+            }
             
             VStack {
                 // Price Display
@@ -58,11 +60,15 @@ struct MenuItemView: View {
                 }
                 .padding(.bottom, 5)
             }
-        }.frame(
+        }
+        .frame(
             maxWidth: 160,
             maxHeight: 202
         )
+        
+        
     }
+    
 }
 
 struct MenuItemView_Previews: PreviewProvider {
