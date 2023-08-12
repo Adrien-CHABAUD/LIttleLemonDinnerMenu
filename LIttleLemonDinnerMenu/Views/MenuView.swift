@@ -80,9 +80,11 @@ struct MenuItemsView_Previews: PreviewProvider {
     }
 }
 
+//Display the gridItems
 struct GridItemDisplay: View {
     @ObservedObject private var viewModel = MenuViewModel()
-    // Name of the category
+    // Deciding if the sheet should be displayed or not
+    @State var showSheetView = false
     let category: String
     // Set the size of the grid
     private let gridShape = [
@@ -102,12 +104,23 @@ struct GridItemDisplay: View {
             
             LazyVGrid(columns: gridShape) {
                 ForEach(itemToShow) { menuItem in
-                    NavigationLink {
-                        MenuItemDetailsView(menuItem: menuItem)
+                    Button {
+                        // Present sheet
+                        self.showSheetView.toggle()
                     } label: {
                         MenuItemView(menuItem: menuItem)
-                        
-                    }.buttonStyle(.plain)
+                    }
+                    .sheet(isPresented: $showSheetView) {
+                        // Display the detail view as a sheet
+                        MenuItemDetailsView(menuItem: menuItem,showSheetView: self.$showSheetView)
+                    }
+
+//                    NavigationLink {
+//                        MenuItemDetailsView(menuItem: menuItem)
+//                    } label: {
+//                        MenuItemView(menuItem: menuItem)
+//
+//                    }.buttonStyle(.plain)
                 }
             }
         }
