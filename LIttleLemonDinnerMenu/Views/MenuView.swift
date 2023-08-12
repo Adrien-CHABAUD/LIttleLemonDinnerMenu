@@ -9,12 +9,14 @@ import SwiftUI
 
 struct MenuView: View {
     // Get direct access to the data
-    @State var showSheetView = false
     @State var selectionCat = "All Categories"
     @State var selectioSort =  "Most Popular"
     //case MostPopular = "Most Popular"
     //case Price = "Price"
     //case Alphabet = "A-Z"
+    @State private var foodSelected = true
+    @State private var drinkSelected = false
+    @State private var dessertSelected = false
     
     var body: some View {
         
@@ -23,47 +25,74 @@ struct MenuView: View {
             ZStack(alignment: .bottom) {
                 ScrollView {
                     
-                    // Buttons allowin the selection of the content to display
+                    // Buttons allowing the selection of the content to display
                     HStack {
-                        VStack {
-                            Image(systemName: "fork.knife.circle.fill")
-                                .font(.system(size: 35))
-                            Text("Main")
-                                .font(.system(size: 10))
-                                .fontWeight(.bold)
-                                
+                        
+                        // Main button
+                        Button {
+                            self.foodSelected = true
+                            self.drinkSelected = false
+                            self.dessertSelected = false
+                        } label: {
+                            VStack {
+                                Image(systemName: "fork.knife.circle.fill")
+                                    .font(.system(size: 35))
+                                Text("Main")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.bold)
+                                    
+                            }
+                            .foregroundColor(foodSelected ? Color("Yellow") : Color("Green"))
                         }
-                        VStack {
-                            Image(systemName: "cup.and.saucer.fill")
-                                .font(.system(size: 35))
-                            Text("Drinks")
-                                .font(.system(size: 10))
-                                .fontWeight(.bold)
+                        
+                        // Drinks button
+                        Button {
+                            self.foodSelected = false
+                            self.drinkSelected = true
+                            self.dessertSelected = false
+                        } label: {
+                            VStack {
+                                Image(systemName: "cup.and.saucer.fill")
+                                    .font(.system(size: 35))
+                                Text("Drinks")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.bold)
+                            }
+                            .foregroundColor(drinkSelected ? Color("Yellow") : Color("Green"))
                         }
                         .padding(.horizontal)
-                        VStack {
-                            Image(systemName: "birthday.cake.fill")
-                                .font(.system(size: 35))
-                            Text("Desserts")
-                                .font(.system(size: 10))
-                                .fontWeight(.bold)
-                        }
-                    }.foregroundColor(Color("Green"))
-                        .padding(.top)
-                    
-                    switch selectionCat {
-                    case "Food":
-                        GridItemDisplay(category: "Food")
-                    case "Drink":
-                        GridItemDisplay(category: "Drink")
-                    case "Dessert":
-                        GridItemDisplay(category: "Dessert")
-                    default:
                         
+                        // Desserts button
+                        Button {
+                            self.foodSelected = false
+                            self.drinkSelected = false
+                            self.dessertSelected = true
+                        } label: {
+                            VStack {
+                                Image(systemName: "birthday.cake.fill")
+                                    .font(.system(size: 35))
+                                Text("Desserts")
+                                    .font(.system(size: 10))
+                                    .fontWeight(.bold)
+                            }
+                            .foregroundColor(dessertSelected ? Color("Yellow") : Color("Green"))
+                        }
+
+
+                    }
+                    .padding(.top)
+                    .padding(.bottom)
+                    
+//MARK: - Switch data display
+                    // Display the item in the view
+                    if foodSelected {
                         GridItemDisplay(category: "Food")
+                    } else if drinkSelected {
                         GridItemDisplay(category: "Drink")
+                    } else {
                         GridItemDisplay(category: "Dessert")
                     }
+
                 }
                 .toolbar {
                     // Adding the name of the app on the leading side
@@ -106,9 +135,6 @@ struct MenuView: View {
                     }
                 }
             }
-        }.sheet(isPresented: $showSheetView) {
-            MenuItemsOptionView(showSheetView: self.$showSheetView, selectionCat: self.$selectionCat, selectioSort: self.$selectioSort)
-            
         }
     }
 }
@@ -119,6 +145,7 @@ struct MenuItemsView_Previews: PreviewProvider {
     }
 }
 
+//MARK: - GRID DISPLAY
 //Display the gridItems
 struct GridItemDisplay: View {
     @ObservedObject private var viewModel = MenuViewModel()
@@ -133,10 +160,10 @@ struct GridItemDisplay: View {
     
     var body: some View {
         VStack {
-            Text(category)
-                .font(.system(size: 25))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
+//            Text(category)
+//                .font(.system(size: 25))
+//                .frame(maxWidth: .infinity, alignment: .leading)
+//                .padding()
             
             // Show the item asked only
             let itemToShow = category == "Food" ? $viewModel.foodMenuItems : category == "Drink" ? $viewModel.drinkMenuItems : $viewModel.dessertMenuItems
