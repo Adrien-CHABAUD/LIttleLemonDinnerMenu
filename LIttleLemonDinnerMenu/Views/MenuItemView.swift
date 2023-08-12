@@ -77,6 +77,7 @@ struct MenuItemView: View {
             maxWidth: 160,
             maxHeight: 202
         )
+        .padding(.bottom)
         
         
     }
