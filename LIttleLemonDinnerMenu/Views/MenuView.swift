@@ -23,6 +23,34 @@ struct MenuView: View {
             ZStack(alignment: .bottom) {
                 ScrollView {
                     
+                    // Buttons allowin the selection of the content to display
+                    HStack {
+                        VStack {
+                            Image(systemName: "fork.knife.circle.fill")
+                                .font(.system(size: 35))
+                            Text("Main")
+                                .font(.system(size: 10))
+                                .fontWeight(.bold)
+                                
+                        }
+                        VStack {
+                            Image(systemName: "cup.and.saucer.fill")
+                                .font(.system(size: 35))
+                            Text("Drinks")
+                                .font(.system(size: 10))
+                                .fontWeight(.bold)
+                        }
+                        .padding(.horizontal)
+                        VStack {
+                            Image(systemName: "birthday.cake.fill")
+                                .font(.system(size: 35))
+                            Text("Desserts")
+                                .font(.system(size: 10))
+                                .fontWeight(.bold)
+                        }
+                    }.foregroundColor(Color("Green"))
+                        .padding(.top)
+                    
                     switch selectionCat {
                     case "Food":
                         GridItemDisplay(category: "Food")
