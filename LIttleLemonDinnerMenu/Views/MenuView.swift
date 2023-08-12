@@ -92,6 +92,10 @@ struct MenuView: View {
                     } else {
                         GridItemDisplay(category: "Dessert")
                     }
+                    
+                    // Add space so the cart button is not on top of
+                    // card at the bottom of the scrollView.
+                    Spacer(minLength: 70)
 
                 }
                 .toolbar {
