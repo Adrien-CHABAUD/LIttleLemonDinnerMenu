@@ -36,9 +36,17 @@ struct MenuView: View {
                         GridItemDisplay(category: "Drink")
                         GridItemDisplay(category: "Dessert")
                     }
-                }.navigationTitle("Menu")
-                    .toolbar {
-                        // Shows the account button in the toolbar
+                }
+                .toolbar {
+                    // Adding the name of the app on the leading side
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Text("Little Lemon")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("Green"))
+                            .font(.system(size: 24))
+                    }
+                    // Shows the account button in the toolbar
+                    ToolbarItem(placement: .navigationBarTrailing){
                         Button {
                             // NOT IMPLEMENTED
                         } label: {
@@ -47,7 +55,7 @@ struct MenuView: View {
                                 .foregroundColor(Color("Green"))
                         }
                         
-                        
+                    }
                     }
                 
                 // Button allowing to see the cart
