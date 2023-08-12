@@ -10,6 +10,8 @@ import SwiftUI
 // Define how to display each item in the grid
 struct MenuItemView: View {
     @Binding var menuItem: MenuItem
+    @State private var loved = false
+    
     var body: some View {
         ZStack {
             VStack {
@@ -50,10 +52,11 @@ struct MenuItemView: View {
                 HStack {
                     // Bottom Buttons
                     Button {
-                        // TO-DO
+                        // Allows to change the UI of the heart
+                        self.loved.toggle()
                     } label: {
-                        Image(systemName: "heart")
-                            .foregroundColor(Color("Green"))
+                        Image(systemName: loved ? "heart.fill" : "heart")
+                            .foregroundColor(loved ? .red : Color("Green"))
                     }
 
                     Spacer()
