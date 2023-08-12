@@ -38,10 +38,13 @@ struct MenuView: View {
                     }
                 }.navigationTitle("Menu")
                     .toolbar {
+                        // Shows the account button in the toolbar
                         Button {
-                            self.showSheetView.toggle()
+                            // NOT IMPLEMENTED
                         } label: {
-                            Image(systemName: "slider.horizontal.3")
+                            Image(systemName: "person.crop.circle.fill")
+                                .font(.system(size: 25))
+                                .foregroundColor(Color("Green"))
                         }
                         
                         
