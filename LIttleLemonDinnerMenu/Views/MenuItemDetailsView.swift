@@ -73,8 +73,7 @@ struct MenuItemDetailsView: View {
                         }
                     }
                     HStack {
-                        Stepper("", value: $stepperVal)
-                        Text("\(stepperVal)")
+                        CustomStepper(value: $stepperVal, label: {Text("\(stepperVal)")}).controlSize(.large)
                     }
                     
                     ZStack {
