@@ -19,13 +19,13 @@
 		E980CA5A2A5208E000490B9D /* LIttleLemonDinnerMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA592A5208E000490B9D /* LIttleLemonDinnerMenuUITests.swift */; };
 		E980CA5C2A5208E000490B9D /* LIttleLemonDinnerMenuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA5B2A5208E000490B9D /* LIttleLemonDinnerMenuUITestsLaunchTests.swift */; };
 		E980CA692A5208F500490B9D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA682A5208F500490B9D /* MenuView.swift */; };
-		E980CA6B2A52090D00490B9D /* MenuItemsOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA6A2A52090D00490B9D /* MenuItemsOptionView.swift */; };
 		E980CA6D2A52091C00490B9D /* MenuItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA6C2A52091C00490B9D /* MenuItemDetailsView.swift */; };
 		E980CA712A520B3A00490B9D /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA702A520B3A00490B9D /* MenuItem.swift */; };
 		E980CA7A2A5250C000490B9D /* MenuCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA792A5250C000490B9D /* MenuCategory.swift */; };
 		E980CA7C2A5250E500490B9D /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA7B2A5250E500490B9D /* Ingredient.swift */; };
 		E980CA822A54640E00490B9D /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980CA812A54640E00490B9D /* MenuItemTests.swift */; };
 		E9B8B1B92A87EB7D0026F9C9 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8B1B82A87EB7D0026F9C9 /* CustomStepper.swift */; };
+		E9F9895F2A8EB67D00595639 /* MenuCategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F9895E2A8EB67D00595639 /* MenuCategoryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,13 +61,13 @@
 		E980CA592A5208E000490B9D /* LIttleLemonDinnerMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIttleLemonDinnerMenuUITests.swift; sourceTree = "<group>"; };
 		E980CA5B2A5208E000490B9D /* LIttleLemonDinnerMenuUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIttleLemonDinnerMenuUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E980CA682A5208F500490B9D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		E980CA6A2A52090D00490B9D /* MenuItemsOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemsOptionView.swift; sourceTree = "<group>"; };
 		E980CA6C2A52091C00490B9D /* MenuItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailsView.swift; sourceTree = "<group>"; };
 		E980CA702A520B3A00490B9D /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		E980CA792A5250C000490B9D /* MenuCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategory.swift; sourceTree = "<group>"; };
 		E980CA7B2A5250E500490B9D /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		E980CA812A54640E00490B9D /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
 		E9B8B1B82A87EB7D0026F9C9 /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
+		E9F9895E2A8EB67D00595639 /* MenuCategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				E980CA682A5208F500490B9D /* MenuView.swift */,
-				E980CA6A2A52090D00490B9D /* MenuItemsOptionView.swift */,
 				E980CA6C2A52091C00490B9D /* MenuItemDetailsView.swift */,
 				E95220102A68AA2500DDFBDA /* MenuItemView.swift */,
+				E9F9895E2A8EB67D00595639 /* MenuCategoryButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -327,6 +327,7 @@
 			files = (
 				E980CA7C2A5250E500490B9D /* Ingredient.swift in Sources */,
 				E980CA412A5208DF00490B9D /* ContentView.swift in Sources */,
+				E9F9895F2A8EB67D00595639 /* MenuCategoryButton.swift in Sources */,
 				E95220132A69D84800DDFBDA /* RoundedCornerShape.swift in Sources */,
 				E95220112A68AA2500DDFBDA /* MenuItemView.swift in Sources */,
 				E980CA692A5208F500490B9D /* MenuView.swift in Sources */,
@@ -334,7 +335,6 @@
 				E9B8B1B92A87EB7D0026F9C9 /* CustomStepper.swift in Sources */,
 				E980CA3F2A5208DF00490B9D /* LIttleLemonDinnerMenuApp.swift in Sources */,
 				E980CA7A2A5250C000490B9D /* MenuCategory.swift in Sources */,
-				E980CA6B2A52090D00490B9D /* MenuItemsOptionView.swift in Sources */,
 				E952200B2A68A7A100DDFBDA /* SortOption.swift in Sources */,
 				E980CA6D2A52091C00490B9D /* MenuItemDetailsView.swift in Sources */,
 				E980CA712A520B3A00490B9D /* MenuItem.swift in Sources */,

@@ -11,9 +11,8 @@ struct MenuView: View {
     // Get direct access to the data
     @State var selectionCat = "All Categories"
     @State var selectioSort =  "Most Popular"
-    //case MostPopular = "Most Popular"
-    //case Price = "Price"
-    //case Alphabet = "A-Z"
+    
+    // Variables used by the display to display the items
     @State private var foodSelected = true
     @State private var drinkSelected = false
     @State private var dessertSelected = false
@@ -29,56 +28,14 @@ struct MenuView: View {
                     HStack {
                         
                         // Main button
-                        Button {
-                            self.foodSelected = true
-                            self.drinkSelected = false
-                            self.dessertSelected = false
-                        } label: {
-                            VStack {
-                                Image(systemName: "fork.knife.circle.fill")
-                                    .font(.system(size: 35))
-                                Text("Main")
-                                    .font(.system(size: 10))
-                                    .fontWeight(.bold)
-                                    
-                            }
-                            .foregroundColor(foodSelected ? Color("Yellow") : Color("Green"))
-                        }
+                        MenuCategoryButton(icon: "fork.knife.circle.fill", name: "Main", selectedCategory: $foodSelected, mainCat: $foodSelected, drinkCat: $drinkSelected, DessertCat: $dessertSelected )
                         
                         // Drinks button
-                        Button {
-                            self.foodSelected = false
-                            self.drinkSelected = true
-                            self.dessertSelected = false
-                        } label: {
-                            VStack {
-                                Image(systemName: "cup.and.saucer.fill")
-                                    .font(.system(size: 35))
-                                Text("Drinks")
-                                    .font(.system(size: 10))
-                                    .fontWeight(.bold)
-                            }
-                            .foregroundColor(drinkSelected ? Color("Yellow") : Color("Green"))
-                        }
+                        MenuCategoryButton(icon: "cup.and.saucer.fill", name: "Drinks", selectedCategory: $drinkSelected, mainCat: $foodSelected, drinkCat: $drinkSelected, DessertCat: $dessertSelected )
                         .padding(.horizontal)
                         
                         // Desserts button
-                        Button {
-                            self.foodSelected = false
-                            self.drinkSelected = false
-                            self.dessertSelected = true
-                        } label: {
-                            VStack {
-                                Image(systemName: "birthday.cake.fill")
-                                    .font(.system(size: 35))
-                                Text("Desserts")
-                                    .font(.system(size: 10))
-                                    .fontWeight(.bold)
-                            }
-                            .foregroundColor(dessertSelected ? Color("Yellow") : Color("Green"))
-                        }
-
-
+                        MenuCategoryButton(icon: "birthday.cake.fill", name: "Desserts", selectedCategory: $dessertSelected, mainCat: $foodSelected, drinkCat: $drinkSelected, DessertCat: $dessertSelected )
                     }
                     .padding(.top)
                     .padding(.bottom)
@@ -164,10 +121,6 @@ struct GridItemDisplay: View {
     
     var body: some View {
         VStack {
-//            Text(category)
-//                .font(.system(size: 25))
-//                .frame(maxWidth: .infinity, alignment: .leading)
-//                .padding()
             
             // Show the item asked only
             let itemToShow = category == "Food" ? $viewModel.foodMenuItems : category == "Drink" ? $viewModel.drinkMenuItems : $viewModel.dessertMenuItems
@@ -184,13 +137,6 @@ struct GridItemDisplay: View {
                         // Display the detail view as a sheet
                         MenuItemDetailsView(menuItem: menuItem,showSheetView: self.$showSheetView)
                     }
-
-//                    NavigationLink {
-//                        MenuItemDetailsView(menuItem: menuItem)
-//                    } label: {
-//                        MenuItemView(menuItem: menuItem)
-//
-//                    }.buttonStyle(.plain)
                 }
             }
         }
