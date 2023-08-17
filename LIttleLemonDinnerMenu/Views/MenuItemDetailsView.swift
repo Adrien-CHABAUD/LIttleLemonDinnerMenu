@@ -15,6 +15,11 @@ struct MenuItemDetailsView: View {
     
     @State private var stepperVal = 1
     
+    private var price: Int {
+        return Int(menuItem.price) * stepperVal
+    }
+    
+    
     var body: some View {
         
         NavigationView {
@@ -84,7 +89,7 @@ struct MenuItemDetailsView: View {
                             .shadow(color: Color("Green"), radius: 1, x: 0, y: 4)
                         
                         // Front Text
-                        Text("Add 1 to cart - £10")
+                        Text("Add \(self.stepperVal) to cart - £\(price)")
                             .fontWeight(.regular)
                             .font(.system(size: 20))
                             .foregroundColor(.white)
