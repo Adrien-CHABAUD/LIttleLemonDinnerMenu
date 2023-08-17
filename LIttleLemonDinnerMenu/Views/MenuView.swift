@@ -119,6 +119,8 @@ struct GridItemDisplay: View {
         GridItem(.flexible()),
     ]
     
+    @State private var selectedItem = MenuItem(ordersCount: 0, title: "", menuCategory: .Food, picture: "", price: 0.0, ingredients: [], orderCount: 0)
+    
     var body: some View {
         VStack {
             
@@ -128,6 +130,8 @@ struct GridItemDisplay: View {
             LazyVGrid(columns: gridShape) {
                 ForEach(itemToShow) { menuItem in
                     Button {
+                        self.selectedItem = menuItem.wrappedValue
+                        let _ = print("\(selectedItem)")
                         // Present sheet
                         self.showSheetView.toggle()
                     } label: {
@@ -135,7 +139,7 @@ struct GridItemDisplay: View {
                     }
                     .sheet(isPresented: $showSheetView) {
                         // Display the detail view as a sheet
-                        MenuItemDetailsView(menuItem: menuItem,showSheetView: self.$showSheetView)
+                        MenuItemDetailsView(menuItem: $selectedItem, showSheetView: self.$showSheetView)
                     }
                 }
             }
