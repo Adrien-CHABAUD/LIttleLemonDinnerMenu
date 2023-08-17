@@ -36,7 +36,13 @@ struct CustomStepper<Label: View>: View {
     var body: some View {
         // Stepper in itself
         HStack {
-            Button("-") { self.value -= 1}
+            Button("-") {
+                if self.value <= 1 {
+                    self.value = 1
+                } else {
+                    self.value -= 1
+                }
+            }
             self.label
                 .padding(.horizontal)
             Button("+") { self.value += 1}
