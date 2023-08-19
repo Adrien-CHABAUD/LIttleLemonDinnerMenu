@@ -8,10 +8,9 @@
 
    # Little Lemon Menu App ![iOS Badge](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white) ![Swift Badge](https://img.shields.io/badge/Swift%20Version-5-orange) 
 
-## Table of contents
-* [General Info](#general-info)
-* [Technologies](#technologies)
-
+<p align="center">
+  <img src="/ReadMe/phone_app_mockup.png" width=600>
+</p>
 
 ## General Info
 
@@ -24,9 +23,9 @@ This app was an assignment from the coursera specialization Meta iOS Developer. 
   <img src="/ReadMe/App_Main_Screenshot_v1.png" width=300 hspace=20><img src="/ReadMe/App_Detail_Screenshot_v1.png" width=300><img src="/ReadMe/App_Settings_Screenshot_v1.png" width=300 hspace=20>
 </p>
 
-I found the assignment interesting but it was missing some more design to be more concrete, I then decided after completing the assignment to redo the UI completely using Figma and making then changes on the app itself.
+I found the assignment interesting but it was missing some more design to be more concrete, I then decided after completing the assignment to redo the UI completely using Figma and making some changes on the available features.
 
-This is what the app now look like:
+This is what the app looks like now:
 
 <p align="center">
   <img src="/ReadMe/phone_app_mockup.png" width=600>
